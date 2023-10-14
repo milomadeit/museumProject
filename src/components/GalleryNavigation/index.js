@@ -1,4 +1,4 @@
-import {NavLink} from 'react-router-dom';
+import {NavLink, useParams} from 'react-router-dom';
 import './GalleryNavigation.css'
 
 function GalleryNavigation({galleries}) {
@@ -7,13 +7,11 @@ function GalleryNavigation({galleries}) {
         <nav>
             <NavLink to='/' exact={true}>Home</NavLink>
             <h1>Galleries</h1>
-            <ul>
+
                 {galleries.map((gallery) => (
-                <li key={gallery.id}>
-                <NavLink to={`/galleries/${gallery.id}`}>{gallery.name}</NavLink>
-                </li>
+                    <NavLink key={gallery.id} to={`/galleries/${gallery.id}`}>{gallery.name}</NavLink>
             ))}
-            </ul>
+
         </nav>
     );
   }
